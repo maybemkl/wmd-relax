@@ -650,7 +650,7 @@ class WMD(object):
             dists = evec_sqr - 2 * evec.dot(evec.T) + evec_sqr[:, numpy.newaxis]
             dists[dists < 0] = 0
             dists = numpy.sqrt(dists)
-            return libwmdrelax.emd(w1, w2, dists)
+            return libwmdrelax.emd(w1, w2, dists), w1, w2, dists
 
         def _convert_document(self, doc):
             words = defaultdict(int)
